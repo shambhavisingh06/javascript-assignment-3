@@ -1,0 +1,155 @@
+function correctfn(string, wrong, correct) {
+    return string.replace(wrong, correct);
+}
+
+let sentence = "I love Java language";
+
+let result = correctfn(sentence, "Java", "JavaScript");
+
+console.log(result);
+
+
+
+let inputArr = [1, 2, 3, 9, 10, 7, 5, 4, 3];
+
+let answer = inputArr.filter(function(number) {
+    return number > 5;
+});
+
+console.log(answer);
+
+
+
+const students = [
+    { name: "Ram", scores: [80, 70, 60] },
+    { name: "Mohan", scores: [80, 70, 90] },
+    { name: "Sai", scores: [60, 70, 80] },
+    { name: "Hemang", scores: [90, 90, 80, 80] }
+];
+
+const result = students.map(function(student) {
+
+    let total = student.scores.reduce(function(sum, score) {
+        return sum + score;
+    }, 0);
+
+    let average = total / student.scores.length;
+
+    return {
+        name: student.name,
+        average: average
+    };
+});
+
+console.log(result);
+
+
+
+
+function repeatedSum(number) {
+
+    while (number >= 10) {
+
+        let sum = 0;
+
+        while (number > 0) {
+            sum = sum + (number % 10);
+            number = Math.floor(number / 10);
+        }
+
+        number = sum;
+    }
+
+    return number;
+}
+
+console.log(repeatedSum(456));
+
+
+
+
+
+
+
+function countWords(paragraph) {
+
+    let words = paragraph.trim().split(/\s+/);
+
+    return words.length;
+}
+
+let paragraph = "I am learning JavaScript for my internship";
+
+console.log(countWords(paragraph));
+
+
+
+
+
+
+
+
+function reverseString(string) {
+
+    return string.split("").reverse().join("");
+}
+
+console.log(reverseString("Hello"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const students = {
+    student1: {
+        subject1: 44,
+        subject2: 56,
+        subject3: 87,
+        subject4: 97,
+        subject5: 37
+    },
+
+    student2: {
+        subject1: 44,
+        subject2: 56,
+        subject3: 87,
+        subject4: 97,
+        subject5: 37
+    },
+
+    student3: {
+        subject1: 44,
+        subject2: 56,
+        subject3: 87,
+        subject4: 97,
+        subject5: 37
+    }
+};
+
+let result = {};
+
+for (let student in students) {
+
+    let marks = Object.values(students[student]);
+
+    let total = marks.reduce(function(sum, mark) {
+        return sum + mark;
+    }, 0);
+
+    let average = total / marks.length;
+
+    result[student] = {
+        average: average
+    };
+}
+
+console.log(result);
